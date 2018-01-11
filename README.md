@@ -11,31 +11,31 @@ You will need Knuth's dancing links c program.
 
 ```
 R CMD BATCH prog.R          # gives data.txt
-R CMD BATCH prog_fixed_24.R # gives data2.txt
+R CMD BATCH prog_fixed_24.R # gives data.txt; should be faster
 
 cat data.txt  | ../Knuth/a.out 1 > ans1.txt   
-cat data2.txt | ../Knuth/a.out 1 > ans2.txt  # should be faster
-
 ```
 
 
 ## Discussion
 
 This directory contains functionality to see if there is a tiling of
-the 70x70 square with 1x1, 2x2, 3x3,...,24x24 square tiles, but
+the 70x70 square with 1x1, 2x2, 3x3,..., 24x24 square tiles, but
 allowing for a rotated tiling pattern.
 
 
 short story:  
 
-1.  Run R CMD BATCH prog_fixed_24.R  to create data2.txt.
-2.  Run cat data2.txt | ../Knuth a.out 1 > ans.txt
+1.  Run R CMD BATCH prog_fixed_24.R  to create data.txt.
+2.  Run cat data.txt | ../Knuth a.out 1 > ans.txt
 
 This executes Knuth's algorithm X (DLX) which solves the exact cover
 problem.
 
 
 Longer story:
+
+
 
 There is only one way to rotate the square (up to reflection and
 rotation), as there is essentially only one integer solution to
@@ -85,11 +85,16 @@ Consider "a_5_5 a_6_5 a_5_6 a_6_6 2".  This means placing the 2x2 tile
 (6,6).  If this row is chosen no other row with "2" in it may be
 chosen: there is only one 2x2 tile.
 
-The last row shows that the 24x24 tile spans square A and square B in
+
+If using prog.R, the last row show that the 24x24 tile spans square A and square B in
 the position corresponding to the last line of data.txt
 
+If using prog_fixed_24.R, the last row shows that the 24x24 tile has only one place to go.  So DLX *must* pick this row, to satisfy the requirement that '24' appears in the choice of rows.  
 
-1.  Run R CMD BATCH prog.R  to create data.txt.
+Consider the case where each of the tiles may be placed anywhere.  If there is a tiling of the 70x70 square, then from a single tiling there are 4900 translated tilings.  But prog_fixed_24.R ties down the placing of the 24x24 tile so reduces the search space by a factor of 4900.  If there is no tiling, DLX with prog_fixed_24.R should determine this fact 4900 times faster than prog.R.  Note that I have fixed the position of the largest tile.  This is the most efficacious one to fix because it limits the choices for the other tiles by the maximum amount.
+
+
+1.  Run R CMD BATCH prog_fixed_24.R  to create data.txt.
 2.  Run cat data.txt | ../Knuth a.out 1 > ans.txt
 
 
