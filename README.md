@@ -1,10 +1,10 @@
-# Project Title
+# Tiling a 70x70 square
 
 Attempt to tile a 70x70 square with a 1x1, 2x2,..., 24x24 tiles
 
 ## Getting Started
 
-R files prog.R and prog_fixed_24.R will produce 
+R files prog.R and prog_fixed_24.R will produce  data.txt 
 ### Prerequisites
 
 You will need Knuth's dancing links c program.
