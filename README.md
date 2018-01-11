@@ -93,8 +93,8 @@ If using prog_fixed_24.R, the last row shows that the 24x24 tile has only one pl
 
 Consider the case where each of the tiles may be placed anywhere.  If there is a tiling of the 70x70 square, then from a single tiling there are 4900 translated tilings.  But prog_fixed_24.R ties down the placing of the 24x24 tile so reduces the search space by a factor of 4900.  If there is no tiling, DLX with prog_fixed_24.R should determine this fact 4900 times faster than prog.R.  Note that I have fixed the position of the largest tile.  This is the most efficacious one to fix because it limits the choices for the other tiles by the maximum amount.
 
+The command I used to compile Knuth's c code is as follows:
 
-1.  Run R CMD BATCH prog_fixed_24.R  to create data.txt.
-2.  Run cat data.txt | ../Knuth a.out 1 > ans.txt
-
-
+```
+gcc -mcmodel=large -O dance_long2.c
+```
