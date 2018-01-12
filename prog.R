@@ -1,6 +1,7 @@
 ## creates data.txt for use with Knuth's dancing links DLX algorithm.
 
-## This differs from prog.R in that the position of the 24x24 square is fixed.
+## This file is substantially identical to prog_fixed-24.R.  The difference is that prog.R allows the 24x24
+## tile to be placed anywhere, and in prog_fixed_24.R it only has one allowed position.
 
 
 filename <- "data.txt"
