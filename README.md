@@ -7,7 +7,7 @@ Attempt to tile a 70x70 square with a 1x1, 2x2,..., 24x24 tiles
 R files prog.R and prog_fixed_24.R will produce  data.txt 
 ### Prerequisites
 
-You will need Knuth's dancing links c program.
+You will need Knuth's dancing links c program, which I am relucant to include here because it does not have a clear license. You can download the program from his website.
 
 ```
 R CMD BATCH prog.R          # gives data.txt
