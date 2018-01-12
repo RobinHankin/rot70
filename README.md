@@ -49,7 +49,7 @@ The coloured arrows are identifications which are like teleports.
 
 File "helperfuncs.R" defines things like up() down() left() right()
 which take a point and move it one square up, down, etc but accounting
-for teleportation.
+for teleportation.  That file includes loads of documentation, referring to twosquares_actualsize.svg, which shows the conventions used.
 
 File "test.R" shows that the stuff works: it shows a path in the
 toroidal space, together with teleportation which appears as long
