@@ -38,7 +38,7 @@ for(n in 1:24){    # size of square
   ## Now square B
   for(i in seq_len(lss)){
     for(j in seq_len(lss)){
-      writeoneline(i,j,0,n)
+      writeoneline(i,j,1,n)
     }
   }
 }  # n loop closes
