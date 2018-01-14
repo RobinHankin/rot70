@@ -106,4 +106,5 @@ gcc -mcmodel=large -O dance_long2.c
 
 ## References
 
-W. S. Anglin 1990. "The Square Pyramid Puzzle".  _The American Mathematical Monthly_, vol 97, number 2, pp120-124
+* W. S. Anglin 1990. "The Square Pyramid Puzzle".  _The American Mathematical Monthly_, vol 97, number 2, pp120-124
+* J. R. Bitner and E. M. Reingold 1975. "Backtrack programming techniques".  _Communications of the ACM_, volume 18, number 11, pp651-656
