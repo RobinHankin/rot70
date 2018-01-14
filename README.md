@@ -19,7 +19,7 @@ cat data.txt  | ../Knuth/a.out 1 > ans1.txt
 
 ## Discussion
 
-Jacobi observed that 1^2+2^2+3^2+...+24^2=4900 was a perfect square and conjectured that this was the only nontrivial example.  Jacobi's conjecture was proved to be true in the early 20th century, and an elementary proof was found in the 1980s.  
+Jacobi observed that 1^2+2^2+3^2+...+24^2=4900 was a perfect square and conjectured that this was the only nontrivial example.  Jacobi's conjecture was proved to be true in the early 20th century, and an elementary proof was found much later (Anglin 1990).
 
 The conjecture suggests that it is possible to tile a 70x70 square with a 1x1, 2x2,...,24x24 square tiles but this is not the case.  I have also determined that it is not possible to tile the 70x70 torus with these tiles. 
 
