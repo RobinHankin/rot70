@@ -106,4 +106,4 @@ gcc -mcmodel=large -O dance_long2.c
 
 ## References
 
-W. S. Anglin 1990. "The Square Pyramid Puzzle".  The American Mathematical Monthly, vol 97, nubmer 2, pp120-124
+W. S. Anglin 1990. "The Square Pyramid Puzzle".  The American Mathematical Monthly, vol 97, number 2, pp120-124
