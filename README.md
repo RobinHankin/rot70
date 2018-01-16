@@ -111,8 +111,10 @@ unknown larger square tile).  The advantage of doing it this way is
 that the location marked with the red "X" is difficult to fill and it
 must be one of 22 tiles with lower right corner at the X.  The
 heuristic used by Knuth in DLX will identify this difficulty and use
-it to prune the search tree quickly.  There is also one fewer tile to
-place, and we have eliminated mirror images and also rotational
+it to prune the search tree quickly.
+
+This device also ensures that there is one fewer tile to place.  In
+addition, we have eliminated mirror images and also rotational
 redundancy, which should lead to faster finishing whether or not an
 exact cover exists.
 
