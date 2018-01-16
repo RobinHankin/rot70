@@ -5,6 +5,17 @@
 ## 56x56 and the little one is 42x42.  Observe that 56^2 +
 ## 42^2=4900=70^2=1^2+...+24^2.
 
+## The coordinate system used for a location is c(x,y,s) where (x,y)
+## is the 2D Cartesian coordinates (x,y) with (0,0) corresponding to
+## the lower-left corner, positive x going upwards and positive y
+## going rightwards.  Thus getpos() and splot() use natural idiom (it
+## is probably better to ignore R's matrix printing methods which use
+## (0,0) as the top left).  The third element, s, has 0 meaning square
+## A (the big one on the left in twosquares_actualsize.svg) and 1
+## meaning square B.
+
+
+
 
 ## The coordinates are set so that the tiny squares are numbered
 ## "a_01_01" to "a_56_56" for square A, and "b_01_01" to "b_42_42" for
