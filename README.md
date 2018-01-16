@@ -112,7 +112,9 @@ that the location marked with the red "X" is difficult to fill and it
 must be one of 22 tiles with lower right corner at the X.  The
 heuristic used by Knuth in DLX will identify this difficulty and use
 it to prune the search tree quickly.  There is also one fewer tile to
-place.
+place, and we have eliminated mirror images and also rotational
+redundancy, which should lead to faster finishing whether or not an
+exact cover exists.
 
 This is a massive saving compared with the previous versions because,
 even after you have placed the 24x24 tile there are zillions of
