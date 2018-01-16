@@ -1,5 +1,9 @@
-## Here, function make_square() is tested on the torus.  The first
-## argument is the position of the lower-left corner of the square 
+## Here, function make_square() is tested on the torus.  Function
+## make_square() constructs a square and returns its coordinates.  It
+## takes two arguments, the first of which is the position of the
+## lower-left point of the square, in standard notation documented at
+## the top of helperfuncs.R.  The second argument to make_square() is
+## the size of the square.
 
 
 source("helperfuncs.R")

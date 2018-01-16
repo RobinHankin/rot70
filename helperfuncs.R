@@ -161,7 +161,7 @@ lss <- 42  # lss = "Little Square Size'
   
 `make_square` <-  function(start,n){
   ## splot(make_square(c(40,40,0),21))
-  ## see test2.R
+  ## see test2.R for additional documentation.
   
   start <- rbind(start)
 
