@@ -97,6 +97,31 @@ If using prog_fixed_24.R, the last row shows that the 24x24 tile has only one pl
 
 Consider the case where each of the tiles may be placed anywhere.  If there is a tiling of the 70x70 square, then from a single tiling there are 4900 translated tilings.  But prog_fixed_24.R ties down the placing of the 24x24 tile so reduces the search space by a factor of 4900.  If there is no tiling, DLX with prog_fixed_24.R should determine this fact 4900 times faster than prog.R.  Note that I have fixed the position of the largest tile.  This is the most efficacious one to fix because it limits the choices for the other tiles by the maximum amount.
 
+
+
+
+=== Compound tiles===
+
+Ross points out that we can exploit the special properties of the 1x1
+tile, being the smallest.  We know that it must look like
+```tiled_squares_klein.svg``` (or its mirror image, I guess).  In the
+diagram I have drawn the larger tile as 3x3 but it could be any size
+>1.  So WLOG there is a compond tile as in the diagram (but with
+unknown larger square tile).  The advantage of doing it this way is
+that the location marked with the red "X" is difficult to fill and it
+must be one of 22 tiles with lower right corner at the X.  The
+heuristic used by Knuth in DLX will identify this difficulty and use
+it to prune the search tree quickly.
+
+This is a massive saving compared with the previous versions because,
+even after you have placed the 24x24 tile there are zillions of
+covering options for the next tile to be placed (or next location to
+be covered).
+
+
+
+
+
 The command I used to compile Knuth's c code is as follows:
 
 ```
