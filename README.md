@@ -119,6 +119,11 @@ even after you have placed the 24x24 tile there are zillions of
 covering options for the next tile to be placed (or next location to
 be covered).
 
+The operational method is to place the 1x1 tile at position
+(1,1,0)---that is, at the lower left corner of square A.  The compound
+tile is made of the 1x1 and an nxn square, with the nxn square at
+position (2,1,0)---that is, joining it as shown in
+```compound_square.svg```.
 
 
 
