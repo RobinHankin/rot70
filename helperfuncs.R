@@ -15,8 +15,6 @@
 ## meaning square B.
 
 
-
-
 ## The coordinates are set so that the tiny squares are numbered
 ## "a_01_01" to "a_56_56" for square A, and "b_01_01" to "b_42_42" for
 ## square B.
@@ -161,7 +159,10 @@ lss <- 42  # lss = "Little Square Size'
   points(getpos(p),...)
 }
   
-`make_square` <-  function(start,n){  # splot(make_square(c(40,40,0),21))
+`make_square` <-  function(start,n){
+  ## splot(make_square(c(40,40,0),21))
+  ## see test2.R
+  
   start <- rbind(start)
 
   p <- matrix(NA,n^2,3)
@@ -179,7 +180,8 @@ lss <- 42  # lss = "Little Square Size'
   return(p)
 }
 
-`stringmaker` <- function(x){  # turns c(3,4,0) to 'a_3_4'; low level
+`stringmaker` <- function(x){  # turns c(3,4,0) to 'a_3_4'; low level.
+                               # Used when writing to the ascii input file.
   if(x[3]==0){
     letter <- 'a'
   } else if(x[3] == 1){
