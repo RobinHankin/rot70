@@ -13,5 +13,18 @@ for(i in 1:n){
   }
   
 }
+splot(p,type='b',cex=(1:n)/n*2)
 
-splot(p,type='b')
+dev.new()
+
+for(i in 1:n){
+  p[i,] <- a
+  if(runif(1) < 0.5){
+    a <- a %>% left
+  } else {
+    a <- a %>% down
+  }
+  
+}
+splot(p,type='b',cex=(1:n)/n*2)
+
