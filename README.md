@@ -157,7 +157,7 @@ Ross points out that we can exploit the special properties of the 1x1
 tile, being the smallest.  We know that it must look like
 ```tiled_squares_klein.svg``` (or its mirror image, I guess).  In the
 diagram I have drawn the larger tile as 3x3 but it could be any size
->1.  So WLOG there is a compond tile as in the diagram (but with
+larger than one.  So WLOG there is a compond tile as in the diagram (but with
 unknown larger square tile).  The advantage of doing it this way is
 that the location marked with the red "X" is difficult to fill and it
 must be one of 22 tiles with lower right corner at the X.  The
