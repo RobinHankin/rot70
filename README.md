@@ -139,7 +139,12 @@ files simultaneously.
 This approach might miss solutions that have the compound tile the
 "wrong way round" (the compound tile has no line of symmetry and
 neither does the plane area of ```twosquares_actualsize.svg```).  I am
-not sure whether this line of reasoning is correct. 
+not sure whether this line of reasoning is correct, but have augmented
+```prog_stick.R``` to include mirror images.  Function
+```write_data_file()``` takes a ```mirror``` logical argument
+defaulting to ```FALSE```.  If set to ```TRUE``` this effectively
+changes the compound tile to its mirror image by starting at (2,1)
+instead of (1,2).
 
 
 
