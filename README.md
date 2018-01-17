@@ -7,7 +7,17 @@ Attempt to tile a 70x70 square with a 1x1, 2x2,..., 24x24 tiles
 R files ```prog.R``` and ```prog_fixed_24.R``` will produce  ```data.txt``` 
 ### Prerequisites
 
-You will need Knuth's dancing links c program, which I am relucant to include here because it does not have a clear license. You can download the program from his website.
+You will need Knuth's dancing links c program, which I am relucant to
+include here because it does not have a clear license. You can
+download the program from his website.
+
+The command I used to compile Knuth's c code is as follows:
+
+```
+gcc -mcmodel=large -O dance_long2.c
+```
+
+And it can be used here as follows:
 
 ```
 R CMD BATCH prog.R          # gives data.txt
@@ -15,6 +25,47 @@ R CMD BATCH prog_fixed_24.R # gives data.txt; should be faster
 
 cat data.txt  | ../Knuth/a.out 1 > ans1.txt   
 ```
+
+To get an idea of how this works, run
+
+``` 
+cat example_exact_cover.txt  | ../Knuth/a.out 1 > ans1.txt
+```
+
+File ```example_exact_cover.txt``` looks like this:
+
+```
+a b c d e f
+a b c
+b c d
+a b d e c
+a
+d e f
+```
+
+The first row shows that we need to find letters a-f exactly once by
+choosing subseqent rows.  Just by inspection we can match the first
+row with ```a b c``` and ```d e f``` (note that order is not
+important).
+
+Running DLX gives:
+
+
+```
+rot70 % cat example_exact_cover.txt | ~/Dropbox/dancing_links/Knuth/a.out 1
+1:
+ f d e (1 of 1)
+ b c a (1 of 1)
+Altogether 1 solutions, after 16 updates.
+     0     1     1 nodes, 11 updates
+     1     0     1 nodes, 5 updates
+Total 3 nodes.
+rot70 % 
+```
+
+So it finds the two rows and shows that this is the only solution.  
+
+
 
 
 ## Discussion
@@ -148,11 +199,6 @@ instead of (1,2).
 
 
 
-The command I used to compile Knuth's c code is as follows:
-
-```
-gcc -mcmodel=large -O dance_long2.c
-```
 
 
 ## References
