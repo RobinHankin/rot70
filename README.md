@@ -100,7 +100,7 @@ Consider the case where each of the tiles may be placed anywhere.  If there is a
 
 
 
-=== Compound tiles===
+## Compound tiles
 
 Ross points out that we can exploit the special properties of the 1x1
 tile, being the smallest.  We know that it must look like
@@ -129,6 +129,17 @@ tile is made of the 1x1 and an nxn square, with the nxn square at
 position (2,1,0)---that is, joining it as shown in
 ```compound_square.svg```.
 
+File `prog_stick.R` carries out Ross's idea.  The file is heavily
+documented but in essence creates files d02.txt, d03.txt,...,d24.txt,
+the filename showing which nxn square tile is joined to the 1x1
+square.  File 'compound runner' is a batch file (run it as
+"```. ./compound_runner"```) which executes Dancing links for all the
+files simultaneously.
+
+This approach might miss solutions that have the compound tile the
+"wrong way round" (the compound tile has no line of symmetry and
+neither does the plane area of ```twosquares_actualsize.svg```).  I am
+not sure whether this line of reasoning is correct. 
 
 
 
