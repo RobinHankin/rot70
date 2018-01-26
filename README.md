@@ -186,7 +186,7 @@ documented but in essence creates files d02.txt, d03.txt,...,d24.txt,
 the filename showing which nxn square tile is joined to the 1x1
 square.  File 'compound runner' is a batch file (run it as
 "```. ./compound_runner"```) which executes Dancing links for all the
-files simultaneously.
+files simultaneously.  
 
 This approach might miss solutions that have the compound tile the
 "wrong way round" (the compound tile has no line of symmetry and
@@ -200,6 +200,8 @@ instead of (1,2).
 
 So file creates d02.txt, d03,txt, ..., d23.txt and also d02_m.txt,
 d03_m.txt, ..., d24_m.txt.
+
+File compound_mirror_runner is the mirror analogue of compound_runner.
 
 
 
