@@ -1,4 +1,5 @@
-## creates data.txt for use with Knuth's dancing links DLX algorithm.
+## creates datafiles for use with Knuth's dancing links DLX algorithm.
+## The files are named d02.txt-d24.txt and d02_m.tzt to d24_m.txt.
 
 ## This file is substantially identical to prog.R but forces one
 ## square tile to be stuck to the 1x1 square tile.
