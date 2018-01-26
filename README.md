@@ -9,7 +9,8 @@ R files ```prog.R``` and ```prog_fixed_24.R``` will produce  ```data.txt```
 
 You will need Knuth's dancing links c program, which I am relucant to
 include here because it does not have a clear license. You can
-download the program from his website; the canonical documentation is ```dancing-color.pdf```.
+download the program from his website; the canonical documentation is
+```dancing-color.pdf```.
 
 The command I used to compile Knuth's c code is as follows:
 
@@ -196,6 +197,9 @@ not sure whether this line of reasoning is correct, but have augmented
 defaulting to ```FALSE```.  If set to ```TRUE``` this effectively
 changes the compound tile to its mirror image by starting at (2,1)
 instead of (1,2).
+
+So file creates d02.txt, d03,txt, ..., d23.txt and also d02_m.txt,
+d03_m.txt, ..., d24_m.txt.
 
 
 
