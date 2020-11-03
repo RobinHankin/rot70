@@ -4,13 +4,14 @@ Attempt to tile a 70x70 square with a 1x1, 2x2,..., 24x24 tiles
 
 ## Getting Started
 
-R files ```prog.R``` and ```prog_fixed_24.R``` will produce  ```data.txt``` 
+R files `prog.R` and `prog_fixed_24.R` will produce  `data.txt`
+
 ### Prerequisites
 
 You will need Knuth's dancing links c program, which I am relucant to
 include here because it does not have a clear license. You can
 download the program from his website; the canonical documentation is
-```dancing-color.pdf```.
+`dancing-color.pdf`.
 
 The command I used to compile Knuth's c code is as follows:
 
@@ -46,7 +47,7 @@ d e f
 
 The first row shows that we need to find letters a-f exactly once by
 choosing subseqent rows.  Just by inspection we can match the first
-row with ```a b c``` and ```d e f``` (note that order is not
+row with `a b c` and `d e f` (note that order is not
 important).
 
 Running DLX gives:
@@ -82,8 +83,8 @@ allowing for a rotated tiling pattern.
 
 short story:  
 
-1.  Run ```R CMD BATCH prog_fixed_24.R```  to create data.txt.
-2.  Run ```cat data.txt | ../Knuth a.out 1 > ans.txt``` to start the dancing links program
+1.  Run `R CMD BATCH prog_fixed_24.R`  to create data.txt.
+2.  Run `cat data.txt | ../Knuth a.out 1 > ans.txt` to start the dancing links program
 
 This executes Knuth's algorithm X (DLX) which solves the exact cover
 problem.
@@ -99,19 +100,19 @@ a^2+b^2=70^2.  This is because the corners are the same point, so if
 one corner is at a lattice point, then all four corners are at a
 lattice point.  And the distance between corners is known to be 70.
 
-Start with file ```twosquares_actualsize.pdf``` (the source code is
-```twosquares_actualsize.svg```).  This shows how the squares are organised.
+Start with file `twosquares_actualsize.pdf` (the source code is
+`twosquares_actualsize.svg`).  This shows how the squares are organised.
 The coloured arrows are identifications which are like teleports.
 
-File ```helperfuncs.R``` defines things like ```up()``` ```down()``` ```left()``` ```right()```
+File `helperfuncs.R` defines things like `up()` `down()` `left()` `right()`
 which take a point and move it one square up, down, etc but accounting
-for teleportation.  That file includes loads of documentation, referring to ```twosquares_actualsize.svg```, which shows the conventions used.
+for teleportation.  That file includes loads of documentation, referring to `twosquares_actualsize.svg`, which shows the conventions used.
 
-File ```test.R``` shows that the stuff works: it shows a path in the
+File `test.R` shows that the stuff works: it shows a path in the
 toroidal space, together with teleportation which appears as long
 straight lines.
 
-File ```test2.R``` showcases the ```make_square()``` function which is used in
+File `test2.R` showcases the `make_square()` function which is used in
 prog.R.  This plots a square that straddles a number of teleportation
 lines.  There will be a line of data.txt that corresponds to this
 precise placing of the 21x21 tile.
@@ -156,7 +157,7 @@ Consider the case where each of the tiles may be placed anywhere.  If there is a
 
 Ross points out that we can exploit the special properties of the 1x1
 tile, being the smallest.  We know that it must look like
-```tiled_squares_klein.svg``` (or its mirror image, I guess).  In the
+`tiled_squares_klein.svg` (or its mirror image, I guess).  In the
 diagram I have drawn the larger tile as 3x3 but it could be any size
 larger than one.  So WLOG there is a compond tile as in the diagram (but with
 unknown larger square tile).  The advantage of doing it this way is
@@ -179,22 +180,22 @@ The operational method is to place the 1x1 tile at position
 (1,1,0)---that is, at the lower left corner of square A.  The compound
 tile is made of the 1x1 and an nxn square, with the nxn square at
 position (2,1,0)---that is, joining it as shown in
-```compound_square.svg```.
+`compound_square.svg`.
 
 File `prog_stick.R` carries out Ross's idea.  The file is heavily
 documented but in essence creates files d02.txt, d03.txt,...,d24.txt,
 the filename showing which nxn square tile is joined to the 1x1
 square.  File 'compound runner' is a batch file (run it as
-"```. ./compound_runner"```) which executes Dancing links for all the
+"`. ./compound_runner"`) which executes Dancing links for all the
 files simultaneously.  
 
 This approach might miss solutions that have the compound tile the
 "wrong way round" (the compound tile has no line of symmetry and
-neither does the plane area of ```twosquares_actualsize.svg```).  I am
+neither does the plane area of `twosquares_actualsize.svg`).  I am
 not sure whether this line of reasoning is correct, but have augmented
-```prog_stick.R``` to include mirror images.  Function
-```write_data_file()``` takes a ```mirror``` logical argument
-defaulting to ```FALSE```.  If set to ```TRUE``` this effectively
+`prog_stick.R` to include mirror images.  Function
+`write_data_file()` takes a `mirror` logical argument
+defaulting to `FALSE`.  If set to `TRUE` this effectively
 changes the compound tile to its mirror image by starting at (2,1)
 instead of (1,2).
 
@@ -204,7 +205,7 @@ d03_m.txt, ..., d24_m.txt.
 File compound_mirror_runner is the mirror analogue of compound_runner.
 
 
-
+## Four-way compound tiles
 
 
 ## References
