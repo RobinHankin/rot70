@@ -203,7 +203,7 @@ The operational method is to place the 1x1 tile at position
 (1,1,0)---that is, at the lower left corner of square A.  The compound
 tile is made of the 1x1 and an nxn square, with the nxn square at
 position (2,1,0)---that is, joining it as shown in
-`compound_square.svg`.
+`compound_tile.svg`.
 
 File `prog_stick.R` carries out Ross's idea.  The file is heavily
 documented but in essence creates files d02.txt, d03.txt,...,d24.txt,
