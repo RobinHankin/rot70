@@ -72,9 +72,16 @@ So it finds the two rows and shows that this is the only solution.
 
 ## Discussion
 
-In 1875, Lucas observed that 1^2+2^2+3^2+...+24^2=4900 was a perfect square and conjectured that this was the only nontrivial example.  Lucas's conjecture was proved to be true in the early 20th century, and an elementary proof was found much later (Anglin 1990).
+In 1875, Lucas observed that 1^2+2^2+3^2+...+24^2=4900 was a perfect
+square and conjectured that this was the only nontrivial example.
+Lucas's conjecture was proved to be true in the early 20th century,
+and an elementary proof was found much later (Anglin 1990).
 
-The conjecture suggests that it is possible to tile a 70x70 square with a 1x1, 2x2,...,24x24 square tiles but this is not the case.  I have also determined that it is not possible to tile the 70x70 torus with these tiles, if the edges of the squares tiles are aligned with the edges of the 70x70 square.
+The conjecture suggests that it is possible to tile a 70x70 square
+with a 1x1, 2x2,...,24x24 square tiles but this is not the case.  I
+have also determined that it is not possible to tile the 70x70 torus
+with these tiles, if the edges of the squares tiles are aligned with
+the edges of the 70x70 square.
 
 This directory contains functionality to see if there is a tiling of
 the 70x70 square with 1x1, 2x2, 3x3,..., 24x24 square tiles, but
@@ -104,9 +111,11 @@ Start with file `twosquares_actualsize.pdf` (the source code is
 `twosquares_actualsize.svg`).  This shows how the squares are organised.
 The coloured arrows are identifications which are like teleports.
 
-File `helperfuncs.R` defines things like `up()` `down()` `left()` `right()`
-which take a point and move it one square up, down, etc but accounting
-for teleportation.  That file includes loads of documentation, referring to `twosquares_actualsize.svg`, which shows the conventions used.
+File `helperfuncs.R` defines things like `up()` `down()` `left()`
+`right()` which take a point and move it one square up, down, etc but
+accounting for teleportation.  That file includes loads of
+documentation, referring to `twosquares_actualsize.svg`, which shows
+the conventions used.
 
 File `test.R` shows that the stuff works: it shows a path in the
 toroidal space, together with teleportation which appears as long
@@ -142,34 +151,48 @@ Consider "a_5_5 a_6_5 a_5_6 a_6_6 2".  This means placing the 2x2 tile
 (6,6).  If this row is chosen no other row with "2" in it may be
 chosen: there is only one 2x2 tile.
 
+If using `prog.R`, the last row show that the 24x24 tile spans square
+A and square B in the position corresponding to the last line of
+data.txt
 
-If using prog.R, the last row show that the 24x24 tile spans square A and square B in
-the position corresponding to the last line of data.txt
+If using `prog_fiaxed_24.R`, the last row shows that the 24x24 tile
+has only one place to go.  So DLX *must* pick this row, to satisfy
+the requirement that '24' appears in the choice of rows.
 
-If using prog_fixed_24.R, the last row shows that the 24x24 tile has only one place to go.  So DLX *must* pick this row, to satisfy the requirement that '24' appears in the choice of rows.  
-
-Consider the case where each of the tiles may be placed anywhere.  If there is a tiling of the 70x70 square, then from a single tiling there are 4900 translated tilings.  But prog_fixed_24.R ties down the placing of the 24x24 tile so reduces the search space by a factor of 4900.  If there is no tiling, DLX with prog_fixed_24.R should determine this fact 4900 times faster than prog.R.  Note that I have fixed the position of the largest tile.  This is the most efficacious one to fix because it limits the choices for the other tiles by the maximum amount.
-
+Consider the case where each of the tiles may be placed anywhere.  If
+there is a tiling of the 70x70 square, then from a single tiling there
+are 4900 translated tilings.  But `prog_fixed_24.R` ties down the
+placing of the 24x24 tile so reduces the search space by a factor
+of 4900.  If there is no tiling, DLX with `prog_fixed_24.R` should
+determine this fact 4900 times faster than prog.R.  Note that I have
+fixed the position of the largest tile.  This is the most efficacious
+one to fix because it limits the choices for the other tiles by the
+maximum amount.
 
 
 
 ## Compound tiles
 
 Ross points out that we can exploit the special properties of the 1x1
-tile, being the smallest.  We know that it must look like
-`tiled_squares_klein.svg` (or its mirror image, I guess).  In the
-diagram I have drawn the larger tile as 3x3 but it could be any size
-larger than one.  So WLOG there is a compond tile as in the diagram (but with
-unknown larger square tile).  The advantage of doing it this way is
-that the location marked with the red "X" is difficult to fill and it
-must be one of 22 tiles with lower right corner at the X.  The
-heuristic used by Knuth in DLX will identify this difficulty and use
-it to prune the search tree quickly.
+tile, being the smallest.  We know that it must look a bit like the
+diagram in `compound_tile.svg` (or its mirror image, I guess).  The
+salient feature is that the four boundary lines of the 1x1 tile may be
+produced, either clockwise or anticlockwise.
 
-This device also ensures that there is one fewer tile to place.  In
-addition, we have eliminated mirror images and also rotational
-redundancy, which should lead to faster finishing whether or not an
-exact cover exists.
+So WLOG we can work with a compound tile as in the diagram (but with
+unknown larger square tile).  In the diagram I have drawn the larger
+tile as 3x3 but it could be any size larger than one.
+
+The advantage of doing it this way is that the location marked with
+the red "X" is difficult to fill.  The only way to fill it is to take
+one of the 22 remaining tiles, and place the tile with its lower right
+corner at the X.  The heuristic used by Knuth in DLX will identify
+this difficulty and use it to prune the search tree quickly.
+
+The device of considering a compound tile also ensures that there is
+one fewer tile to place.  In addition, we have eliminated mirror
+images and also rotational redundancy, which should lead to faster
+finishing whether or not an exact cover exists.
 
 This is a massive saving compared with the previous versions because,
 even after you have placed the 24x24 tile there are zillions of
